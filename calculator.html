@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>calculator</title>
+    <link rel="stylesheet" href="css/calculator.css">
+</head>
+<body>
+    <div class="calculators">
+            <div class="overall">
+                <input type="text" id="display" class="display" readonly>
+                <button onclick="
+                    press('7')  ">7</button>
+                <button onclick="
+                    press('8')">8</button>
+                <button onclick="
+                    press('9')">9</button>
+                <button class="operator"onclick="
+                    press('/') ">/</button>
+                <button onclick="
+                    press('4')">4</button>
+                <button onclick="
+                    press('5')">5</button>
+                <button onclick="
+                    press('6')">6</button>
+                <button class="operator"onclick="
+                    press('*')">*</button>
+                <button onclick="
+                    press('1')">1</button>
+                <button onclick="
+                    press('2')">2</button>
+                <button onclick="
+                    press('3')">3</button>
+                <button class="operator"onclick="
+                    press('-')">-</button>
+                <button onclick="
+                    press('0')">0</button>
+                <button class="operator"onclick="
+                clearArr()">C</button>
+                <button class="operator"onclick="
+                calculate()">=</button>
+                <button class="operator"onclick="
+                    press('+')">+</button>
+            </div>
+    </div>
+    
+    <script>
+        let inputArr=[];
+        let display = document.getElementById('display');
+
+        function press(num){
+            inputArr.push(num)
+            display.value=inputArr.join('');
+        }
+        function clearArr(){
+            inputArr=[];
+            display.value='';
+        }
+        function calculate(){
+            if (display.value===''){
+                alert('no input given')
+                display.value='0';
+                return
+            }
+            let res=eval(inputArr.join(''));
+            display.value=res;
+            inputArr=[res];
+        }
+        
+    </script>
+</body>
+</html>
